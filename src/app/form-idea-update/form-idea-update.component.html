@@ -1,0 +1,10 @@
+<form [formGroup]="ideaForm" (ngSubmit)="onUpdate()">
+
+  <input autocomplete="off" type="text" formControlName="title" id="titleIdea" placeholder="Title" class="boxShadow" [(ngModel)]="Title">
+
+  <textarea formControlName="content" id="contentIdea" class="boxShadow" placeholder="Entrer le conntenu de votre idée..." [(ngModel)]="Content"></textarea>
+
+  <div>
+    <button type="submit" class="boxShadow">Modifier</button>
+  </div>
+</form>

@@ -1,0 +1,10 @@
+<div class="idea-content">
+  <div style="display: flex">
+    <span title="vérifier 'orange'| non-verifier'transparent'" class="circle-approuved" (click)="approuved()" [ngClass]="listIdea.status == 1? 'approuved':'non-approuved' "></span>
+    <h4 title="Editer" [routerLink]="['/idee', listIdea.id]">{{ listIdea.title }}</h4>
+  </div>
+  <span class="material-icons btn-close" (click)="deleteIdea()">
+    close
+  </span>
+</div>
+<hr>

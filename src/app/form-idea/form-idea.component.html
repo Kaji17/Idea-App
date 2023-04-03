@@ -1,0 +1,10 @@
+<form [formGroup]="ideaForm">
+
+  <input autocomplete="off" type="text" formControlName="title" id="titleIdea" placeholder="Title" class="boxShadow">
+
+  <textarea formControlName="content" id="contentIdea" class="boxShadow" placeholder="Entrer le conntenu de votre idée..."></textarea>
+
+  <div>
+    <button type="button" class="boxShadow" (click)="onSubmit()">Enregistrer</button>
+  </div>
+</form>

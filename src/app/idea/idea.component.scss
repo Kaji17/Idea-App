@@ -1,0 +1,40 @@
+.idea-content{
+  display: flex;
+  align-items: center;
+  cursor:pointer;
+    width: 66vh;
+    justify-content: space-between;
+    +{
+      display:flex;
+      align-items: center;
+    }
+}
+h4{
+  margin: 4px 0px;
+}
+
+.circle-approuved{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid hsl(235, 21%, 11%);
+  margin-right: 7px;
+  display: flex;
+  cursor: pointer;
+}
+.btn-close{
+  cursor: pointer;
+  .btn-close:hover{
+    color: red
+  }
+}
+.btn-close:hover{
+  color: red
+}
+
+.approuved{
+  background-color: orange;
+}
+.non-approuved{
+  background-color: transparent;
+}
