@@ -1,3 +1,11 @@
+.mainClass{
+   position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -8,7 +16,6 @@ form {
 
 input {
   background-color: hsl(237, 14%, 26%);
-  width: 80%;
   height: 2rem;
   border-radius: 7px;
   padding-left: 31px;
@@ -24,7 +31,6 @@ input:focus {
 textarea {
   background-color: hsl(237, 14%, 26%);
   resize: none;
-  width: 73%;
   border-style: none;
   height: 12rem;
   border-radius: 7px;
@@ -49,4 +55,8 @@ button{
   border: 3px solid hsl(235, 21%, 11%);
   color: white;
   font-weight: bold;
+}
+
+.form-group{
+  width: 100%;
 }

@@ -1,3 +1,22 @@
-<div class="main-content boxShadow">
+<div class="main-content boxShadow ">
+  <h2>Liste des idées</h2>
   <app-idea *ngFor="let idea of Ideaies" [listIdea]="idea"></app-idea>
 </div>
+<!-- <div class="container main-content">
+  <h2>Liste des idées</h2>
+  <table class="table table-stripped">
+    <thead>
+      <tr>
+        <th>Approuved</th>
+        <th>Title</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <app-idea *ngFor="let idea of Ideaies" [listIdea]="idea"></app-idea>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

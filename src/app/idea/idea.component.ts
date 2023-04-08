@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IIdea } from '../model/Idea.model';
 import { IdeaListService } from '../services/idea-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-idea',
@@ -12,74 +13,33 @@ export class IdeaComponent implements OnInit {
   @Input()
   listIdea!: IIdea
 
-  @Input()
-  id!: number
+  Ideass!: IIdea[]
 
   recupIeda!: IIdea
 
   public statusVerif!: number
 
-  constructor(private ideaservice: IdeaListService) { }
+  constructor(private ideaservice: IdeaListService, private router: Router) { }
 
   ngOnInit(): void {
-    this.statusVerif =0
+    this.ideaservice.getIdeaById(this.listIdea.id!).subscribe((idea: IIdea) => {
+      this.statusVerif = idea.status!
+    })
   }
 
+  goToIdeaList(): void {
+    this.router.navigate(['/update-idea'])
+  }
   //Méthode pour supprimer l'idée par l'id
+  @Input()
   deleteIdea(): void {
-    // console.log("Id de l'idéé:", id)
-    this.ideaservice.deleteIdee(this.listIdea.id!)
-  }
-
-  approuved(): void {
-    if ( this.listIdea.status === 1 ) {
-      this.listIdea.status=0
-      console.log('idé', this.listIdea)
-      this.ideaservice.upDateIdea(this.listIdea, this.listIdea.id!)
-
-    } else {
-      this.listIdea.status=1
-      console.log('idé', this.listIdea)
-      this.ideaservice.upDateIdea(this.listIdea, this.listIdea.id!)
-      console.log('idé', this.listIdea)
-      // this.ideaservice.getIdeaById(id).subscribe({
-      //   next: idea => {
-      //     this.recupIeda = {
-      //       id: idea.id,
-      //       title: idea.title,
-      //       content: idea.content,
-      //       status: 1
-      //     };
-      //   }
-      // })
-      // this.statusVerif = 1
-      // this.ideaservice.upDateIdea(this.recupIeda, id)
-    }
-  }
-
-  changeStatu(stat: number, id:number): void{
-    this.ideaservice.getIdeaById(id).subscribe({
-      next: idea => {
-        console.log(idea)
-        this.recupIeda = {
-          // id: idea.id,
-          // title: idea.title,
-          // content: idea.content,
-          status: stat
-        };
-      }
+    this.ideaservice.deleteIdee(this.listIdea.id!).subscribe((idea: IIdea) => {
+      console.log("Supprimer", idea.id)
     })
-    this.statusVerif = 1
-    this.ideaservice.upDateIdea(this.recupIeda, id)
+    window.location.reload()
   }
 
-  checkStatu(id:number): number{
-    this.ideaservice.getIdeaById(id).subscribe({
-      next: idea => {
-        this.statusVerif=idea.status!
-      }
-    })
-    return this.statusVerif
+  loadAll(): void{
+    this.ideaservice.getIdea()
   }
-
 }

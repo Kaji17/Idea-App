@@ -16,16 +16,12 @@ const httpOptions = {
 })
 export class IdeaListService {
   host = environment.host
-  host2 = this.host + "/"
-
-
-
 
   constructor(private http: HttpClient) { }
 
   // Récupération de la liste des Idées
   public getIdea(): Observable<IIdea[]> {
-    return this.http.get<IIdea[]>(this.host).pipe(
+    return this.http.get<IIdea[]>(`${this.host}`).pipe(
       catchError(this.handleError)
     )
   }
@@ -43,14 +39,14 @@ export class IdeaListService {
   }
 
   //Modification d'une idée
-  public upDateIdea(idea: IIdea, id: number): Observable<IIdea> {
-    return this.http.put<IIdea>(`${this.host}/${id}`, idea, httpOptions).pipe(
+  public upDateIdea(id: number, idea: IIdea): Observable<Object> {
+    return this.http.put(`${this.host}/${id}`, idea, httpOptions).pipe(
       tap(ele =>console.log("modifier avec succès",ele ))
     )
   }
 
   //Supprimer une idée
-  public deleteIdee(id: number) {
+  public deleteIdee(id: number): Observable<Object> {
     return this.http.delete(`${this.host}/${id}`, httpOptions).pipe(
       tap(ele =>console.log("supprimer",ele ))
     )

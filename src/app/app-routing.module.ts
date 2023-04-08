@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AccueilComponent } from './accueil/accueil.component';
-import { AppComponent } from './app.component';
-import { IdeaDetailComponent } from './idea-detail/idea-detail.component';
+import { RouterModule } from '@angular/router';
+import { CreateComponent } from './create/create.component';
+import { UpdateComponent } from './update/update.component';
+import { IdeaListComponent } from './idea-list/idea-list.component';
 
 @NgModule({
   imports: [RouterModule.forRoot(
     [
-      { path: "accueil", component: AccueilComponent},
-      { path: "idee/:id", component: IdeaDetailComponent},
-      { path: "", redirectTo: "accueil", pathMatch: "full" },
-      { path: "**", redirectTo: "accueil", pathMatch: "full" },
+      { path: "create-idea", component: CreateComponent},
+      { path: "update-idea/:id", component: UpdateComponent},
+      { path: "list-idea", component: IdeaListComponent},
+      { path: "", redirectTo: "create-idea", pathMatch: "full" },
+      { path: "**", redirectTo: "create-idea", pathMatch: "full" },
 
     ]
   )],

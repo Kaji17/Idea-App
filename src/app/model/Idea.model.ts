@@ -1,16 +1,15 @@
 export interface IIdea{
-  id?: number;
+  id?: number| null;
   title?: string| null;
   content?: string| null;
   status?: number| null ;
 }
 
-// export class Idea implements IIdea{
-//   constructor(
-//   public id?: number,
-//   public title?: string,
-//   public content?: string,
-//   public status?: number,
-//   public lastmodif?: string
-//   ){}
-//}
+export class Idea implements IIdea{
+  constructor(
+  public id?: number| null,
+  public title?: string| null,
+  public content?: string| null,
+  public status?:  number| null,
+  ){}
+}
