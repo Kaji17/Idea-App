@@ -20,14 +20,6 @@ export class IdeaListComponent implements  OnInit {
     })
   }
 
-  // deleteIdea(): void {
-  //   this.ideaservice.deleteIdee(this.listIdea.id!).subscribe((idea: IIdea) => {
-  //     console.log("Supprimer", idea.id)
-  //     this.loadAll()
-  //   })
-  // }
-
-
   loadAll():void{
     this.ideaservice.getIdea().subscribe({
       next: ideaies => {

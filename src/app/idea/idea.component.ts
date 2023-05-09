@@ -31,7 +31,6 @@ export class IdeaComponent implements OnInit {
     this.router.navigate(['/update-idea'])
   }
   //Méthode pour supprimer l'idée par l'id
-  @Input()
   deleteIdea(): void {
     this.ideaservice.deleteIdee(this.listIdea.id!).subscribe((idea: IIdea) => {
       console.log("Supprimer", idea.id)
